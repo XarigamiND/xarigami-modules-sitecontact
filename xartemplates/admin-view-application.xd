@@ -1,0 +1,95 @@
+ <xar:data-getitems name="$properties" value="$values" module="sitecontact" itemtype="$scid"  />
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>
+                Review Responses
+            </xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+            <xar:template file="navviewtabs" type="module" />
+            <xar:if condition="is_array($responses)">
+                <table class="xar-items">
+                        <tr>
+                            <th>
+                                <xar:mlstring>Response ID</xar:mlstring>
+                            </th>
+                            <th>
+                               <xar:mlstring>Name</xar:mlstring>
+                            </th>
+                            <th>
+                               <xar:mlstring>Email</xar:mlstring>
+                            </th>
+                            <th>
+                               <xar:mlstring>Validated</xar:mlstring>
+                            </th>
+                            <th>
+                               <xar:mlstring>Approved</xar:mlstring>
+                            </th>
+                            <th>
+                                <xar:mlstring>
+                                    Options
+                                </xar:mlstring>
+                            </th>
+                        </tr>
+                        <xar:foreach in="$responses" value="$response">
+                            <xar:set name="scridn">$response['scrid']</xar:set>
+                            <xar:set name="valid">$values[$scridn]['validated']?'Yes':'No'</xar:set>
+                            <xar:set name="approved">$values[$scridn]['approved']?'Yes':'No'</xar:set>
+                            <tr>
+                                <td class="xar-norm">
+                                    #$response['scrid']#
+                                </td>
+                                <td class="xar-norm">
+                                    #$response['username']#
+                                </td>
+                                <td class="xar-norm">
+                                    #$response['useremail']#
+                                </td>
+                                <td class="xar-norm">
+                                    #$valid#
+                                </td>
+                                <td class="xar-norm">
+                                    #$approved#
+                                </td>
+                                <td class="xar-align-center xar-norm">
+                                    <xar:if condition="empty($response['viewurl'])">
+                                        #$viewtitle#
+                                        <xar:else />
+                                        <a href="#$response['viewurl']#">
+                                            #$viewtitle#
+                                        </a>
+                                    </xar:if>
+
+                                    |
+                                    <xar:if condition="empty($response['editurl'])">
+                                        #$edittitle#
+                                        <xar:else />
+                                        <a href="#$response['editurl']#">
+                                            #$edittitle#
+                                        </a>
+                                    |
+                                    </xar:if>
+                                    <xar:if condition="empty($response['deleteurl'])">
+                                        #$deletetitle#
+                                        <xar:else />
+                                        <a href="#$response['deleteurl']#">
+                                            #$deletetitle#
+                                        </a>
+                                    </xar:if>
+                                </td>
+                            </tr>
+                        </xar:foreach>
+                    </table>
+            <xar:else />
+                <xar:mlstring>No saved responses for this form</xar:mlstring>
+            </xar:if>
+            #$pager#
+        </div>
+    </div>
+</div>

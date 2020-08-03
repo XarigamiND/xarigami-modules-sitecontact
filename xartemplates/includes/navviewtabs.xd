@@ -1,0 +1,31 @@
+<xar:style scope="module" module="base" file="tabs" />
+<xar:set name="request">xarRequestGetInfo()</xar:set>
+<xar:set name="activetab">#$request.2#</xar:set>
+
+<ul class="xar-tabs">
+   <li class="xar-tabs-label">
+        <xar:mlstring>Select Form:</xar:mlstring>
+    </li>
+    <xar:foreach in="$formfilters" value="$formfilter">
+        <xar:if condition="empty($formfilter['flink']) and $formfilter['current'] eq false">
+            <li class="xar-tab">
+                <a href="#xarServerGetCurrentURL()#" title="#$formfilter['ftitle']#">
+                    #$formfilter['ftitle']#
+                </a>
+            </li>
+         <xar:elseif condition="$formfilter['current']" />
+            <li class="xar-tab-active">
+                <a href="#$formfilter['flink']#" title="#$formfilter['ftitle']#">
+                    #$formfilter['ftitle']#
+                </a>
+            </li>
+
+        <xar:else />
+            <li class="xar-tab">
+                <a href="#$formfilter['flink']#" title="#$formfilter['ftitle']#">
+                    #$formfilter['ftitle']#
+                </a>
+            </li>
+        </xar:if>
+    </xar:foreach>
+</ul>

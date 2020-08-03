@@ -1,0 +1,27 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <xar:set name="pagetitle"><xar:mlstring>Validation result</xar:mlstring></xar:set>
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="user-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <div class="xar-mod-content">
+            <xar:if condition="$result">
+                <p style="text-align: center; padding:20px;">
+                    <xar:mlstring>Thank you, your email has been confirmed and you have now completed the validation process.</xar:mlstring>
+                </p>
+            <xar:else />
+                <xar:if condition="!empty($extra)">
+                    <p style="text-align: center; padding:20px;">
+                        #$extra#
+                    </p>
+                </xar:if>
+                <p style="text-align: center; padding:20px;">
+                    <xar:mlstring>Validation was not successful. Please contact the administrator.</xar:mlstring>
+                </p>
+            </xar:if>
+        </div>
+    </div>
+</div>

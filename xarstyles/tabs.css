@@ -1,0 +1,82 @@
+/* tabs */
+
+ul.xar-tabs {
+    margin: 0 0 0 0; 
+    list-style: none;
+    padding: 0px 0px 0px 5px; /* give it a left padding of 5px to counter the effect of margin -5px below */
+    border-style: none;
+    background-color: #FFFFFF;
+    background: url(../xarimages/tabs.gif) repeat-x bottom left;  
+    margin: .5em 0 0.5em 0 !important;
+}
+
+ul.xar-tabs li.xar-tabs-label {
+    list-style: none !important;
+    float: left;
+    white-space: nowrap;
+    border: 0;
+    line-height: 21px;
+    padding: 1px 10px 1px 0px !important;
+    background-image:none;
+    line-height: 21px;
+    height: 22px;
+    position: relative;
+    display: block;
+}
+
+ul.xar-tabs li {
+    list-style: none !important;
+    display: block; 
+    float: left; 
+    padding: 0px 0px 0px 10px;  
+    margin: 0 0 0 0;
+    background: url(../xarimages/tabs.gif) no-repeat 0px 0px;  
+    margin-left: -5px; 
+    z-index: 0; 
+    position: relative;  
+    height: 24px;
+    border-style: none;
+    margin-bottom: 1px;
+}
+
+ul.xar-tabs li a {
+    text-decoration: none; 
+    display: block;  
+    float: left;   
+    background: url(../xarimages/tabs.gif) no-repeat right 0px;  
+    padding: 1px 9px 1px 2px;
+    line-height: 21px;
+    margin: 0 0 0 0;
+    cursor: pointer;  
+    height: 22px;
+    position: relative;
+    z-index: 0;
+    border-style: none;
+}
+
+ul.xar-tabs li.xar-tab:hover, ul.xar-tabs li.xar-tab-active {
+    position: relative; 
+    z-index: 5; 
+    background: url(../xarimages/tabs.gif) no-repeat left -24px; 
+    color: #000000;   
+}
+ul.xar-tabs li.xar-tab a:hover, ul.xar-tabs li.xar-tab:hover a, ul.xar-tabs li.xar-tab-active a {
+    background-image: url(../xarimages/tabs.gif) no-repeat 0px 0px;  
+    position: relative; 
+    z-index: 5; 
+    background-position: right -24px;
+    text-decoration: none; 
+}
+
+
+
+/* required for broken box models */
+ul.xar-tabs:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    overflow: hidden;
+    visibility: hidden;
+}

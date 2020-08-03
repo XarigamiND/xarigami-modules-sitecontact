@@ -1,0 +1,46 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1><xar:mlstring>Delete response</xar:mlstring></h1>
+        <xar:template file="navviewtabs" type="module" />
+        <div class="xar-mod-content">
+            <form method="post" action="&xar-modurl-sitecontact-admin-delete;">
+                <fieldset>
+                    <legend>
+                        <xar:mlstring>Confirm Deletion?</xar:mlstring>
+                    </legend>
+                    <div class="xar-form-input-wrapper">
+                     <label for="itemid" class="xar-form-label" title="#xarML('This is the item id')#">
+                        <xar:mlstring>Item ID:</xar:mlstring>
+                     </label>
+                      #$scrid#
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <label for="itemname" class="xar-form-label" title="#xarML('This is the response user')#">
+                            <xar:mlstring>User Name:</xar:mlstring>
+                        </label>
+                         #$username#
+                    </div>
+                </fieldset>
+
+                <div class="xar-form-footer">
+                    <input type="hidden" name="authid" id="authid" value="#$authid#" />
+                    <input type="hidden" name="confirm" id="confirm" value="true" />
+                    <input type="hidden" name="scrid" id="scrid" value="#$scrid#" />
+                    <input type="hidden" name="scid" id="scid" value="#$scid#" />
+                    <input type="submit" value="#xarML('Confirm')#" />
+                     <p>
+                     <a href="#$returnurl#">
+                         <xar:mlstring>Cancel and Return</xar:mlstring>
+                     </a>
+                     </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

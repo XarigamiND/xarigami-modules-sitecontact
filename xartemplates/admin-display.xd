@@ -1,0 +1,150 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:ml>
+                <xar:mlstring>Response ID: #(1) for #(2) </xar:mlstring>
+                <xar:mlvar>#$scrid#</xar:mlvar>
+                <xar:mlvar>#$formname#</xar:mlvar>
+            </xar:ml>
+        </h1>
+         <xar:template file="navviewtabs" type="module" />
+        <div class="xar-mod-content">
+            <xar:if condition="$permissioncheck">
+                <xar:mlstring>A permission check was requested in this form.</xar:mlstring>
+            </xar:if>
+            <xar:if condition="!empty($status)">
+                <strong>#$status#</strong>
+            <xar:else />
+            <fieldset>
+                <legend><xar:mlstring>Response</xar:mlstring> #$scrid#</legend>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>User name:</xar:mlstring>
+                        </span>
+                        <xar:data-output type="textbox" value="$username" />
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>Email:</xar:mlstring>
+                        </span>
+                        <xar:data-output type="email" value="$useremail" />
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>Subject:</xar:mlstring>
+                        </span>
+                         <xar:data-output type="textbox" value="$requesttext" />
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>Organization:</xar:mlstring>
+                        </span>
+                        <xar:data-output type="textbox" value="$company" />
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>Message:</xar:mlstring>
+                        </span>
+                        <xar:if condition="FALSE eq $usehtmlemail">
+                            <xar:set name="usermessage">nl2br($usermessage)</xar:set>
+                        </xar:if>
+                        <div class="xar-form-container-after">
+                            <xar:data-output type="textbox" value="$usermessage" />
+                         </div>
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>User IP:</xar:mlstring>
+                        </span>
+                        <xar:data-output type="textbox" value="$useripaddress" />
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                           <xar:mlstring>Referer:</xar:mlstring>
+                        </span>
+                        <xar:data-output type="url" value="$userreferer" />
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>Requested a copy?</xar:mlstring>
+                        </span>
+                         <xar:data-output type="checkbox" value="$sendcopy" />
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>Permission given?</xar:mlstring>
+                        </span>
+                        <xar:data-output type="checkbox" value="$permission" />
+                        <xar:if condition="$permissioncheck">
+                            <xar:mlstring> (Permission requested)</xar:mlstring>
+                         <xar:else />
+                            <xar:mlstring> (No permission requested)</xar:mlstring>
+                        </xar:if>
+                    </div>
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>Copy list:</xar:mlstring>
+                        </span>
+                        <xar:if condition="is_array($ccrecipients)">
+                            <xar:foreach in="$ccrecipients" key="$k" value="$v">
+                                #$k#,
+                            </xar:foreach>
+                        <xar:else/>
+                            <xar:mlstring>None</xar:mlstring>
+                        </xar:if>
+                        <xar:if condition="!empty($admincclist)">
+                            &#160;<xar:mlstring>(including Admin cc list)</xar:mlstring>
+                        </xar:if>
+                    </div>
+
+                    <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>BCC list:</xar:mlstring>
+                        </span>
+                        <xar:if condition="is_array($bccrecipients)">
+                            <xar:foreach in="$bccrecipients" key="$k" value="$v">
+                                #$k#,
+                            </xar:foreach>
+                        <xar:else />
+                            <xar:mlstring>None</xar:mlstring>
+                        </xar:if>
+                    </div>
+                   <div class="xar-form-input-wrapper">
+                        <span class="xar-form-label">
+                            <xar:mlstring>Response Time:</xar:mlstring>
+                        </span>
+                        #xarLocaleGetFormattedDate('medium', $responsetime)#
+                        #xarLocaleGetFormattedTime('medium', $responsetime)#
+                    </div>
+                    <xar:if condition="xarModIsHooked('dynamicdata', 'sitecontact',$scid)">
+                        <xar:data-getitem name="$properties" module="sitecontact" itemid="$scrid" itemtype="$scid" />
+                        <xar:if condition="isset($properties) and count($properties) gt 0">
+                            <xar:foreach in="$properties" key="$name">
+                            <div class="xar-form-input-wrapper">
+                                <span class="xar-form-label">
+                                    <xar:data-label property="$properties[$name]" />:
+                                </span>
+                                <xar:data-output property="$properties[$name]" />
+                            </div>
+                            </xar:foreach>
+
+                        </xar:if>
+                    </xar:if>
+            </fieldset>
+            <xar:if condition="!empty($hooks)">
+                <xar:foreach in="$hooks" key="$hookmodule">
+                    <xar:if condition="$hookmodule ne 'dynamicdata'">
+                        <p>#$hooks[$hookmodule]#</p>
+                    </xar:if>
+                </xar:foreach>
+            </xar:if>
+        </xar:if>
+        </div>
+    </div>
+</div>

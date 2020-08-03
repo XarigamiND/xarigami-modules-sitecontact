@@ -1,0 +1,47 @@
+.contactblock {
+ width:13em;
+ margin:0;
+ padding:0;
+
+}
+
+.contactblock .blockfields {
+
+}
+.contactblock .xar-form-label {
+width:95%;
+font-size:98%;
+padding-left:4px;
+}
+div.contactblock label {
+font-size:98%;
+}
+.contactblock fieldset{
+
+padding:4px;
+margin:2px;
+}
+
+div.contactblock .xar-form-input-wrapper-after {
+    padding-left: 1em;
+    margin-bottom: 4px;
+    clear: both;
+    font-size:smaller;
+}
+
+div.contactblock .xar-form-input-wrapper input, div.contactblock .xar-form-input-wrapper,
+div.contactblock .xar-form-input-wrapper select,div.contactblock .xar-form-input-wrapper textarea
+ {
+    margin-bottom: 4px;
+    width:95%;
+}
+textarea#blockusermessage{
+    margin-bottom: 4px;
+    width:95%;
+}
+#antibotcode {
+width:98%;
+padding:4px;
+width: 95%;
+}
+

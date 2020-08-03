@@ -1,0 +1,57 @@
+<!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+<xar:set name="errortype">!isset($errortype)?'':$errortype</xar:set>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="user-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1><xar:mlstring>User Error</xar:mlstring></h1>
+        <div class="xar-mod-content">
+            <fieldset>
+
+                <img src="#xarTplGetImage('user-error.png','base')#" alt="#xarML('System Message')#" width="96" height="96" class="xar-module-icon"/>
+                <xar:if condition="$errortype eq 'default_form'" >
+                    <div class="xar-padding-thick">
+                        <p>
+                            <xar:mlstring>
+                                You cannot delete the form set as Default. If you wish to delete this form, please set the Default to another form and try again.
+                            </xar:mlstring>
+                        </p>
+                    </div>
+                <xar:elseif condition="$errortype eq 'form_unavailable'" />
+                        <div class="xar-padding-thick">
+                        <p>
+                            <xar:mlstring>
+                                The form by that name is not available.
+                            </xar:mlstring>
+                        </p>
+                    </div>
+                <xar:elseif condition="$errortype eq 'bad_validation'" />
+                        <div class="xar-padding-thick">
+                        <p>
+                            <xar:mlstring>
+                                You have not supplied the correct validation data. Please contact the administrator if you are having difficulties validating.
+                            </xar:mlstring>
+                        </p>
+                    </div>
+                <xar:elseif condition="$errortype eq 'banned'" />
+                        <div class="xar-padding-thick">
+                        <p>
+                            <xar:mlstring>
+                                You are not permitted to use this form. Please contact the administrator if you are having difficulties.
+                            </xar:mlstring>
+                        </p>
+                    </div>
+                <xar:else />
+                    <div class="xar-padding-thick">>
+                        <xar:mlstring>No error message is available.</xar:mlstring>
+                        <br />
+                        <xar:mlstring>Please contact the system administrator.</xar:mlstring>
+                    </div>
+                </xar:if>
+            </fieldset>
+        </div>
+    </div>
+</div>

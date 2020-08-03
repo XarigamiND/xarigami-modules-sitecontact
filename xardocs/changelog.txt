@@ -1,0 +1,128 @@
+Version 1.3.3  27 April 2012
+============================
+- Add wysiwyg option to custom text when tinymce installed
+
+
+Version 1.3.2  23 June 2011
+==========================
+Minor tweaks for 1.4.0
+- Update documentation in overview
+- Adjust the file upload property checking for attachments, for the new format in 1.4.0
+
+Version 1.3.0  5 March 2011
+==========================
+Major upgrade for core version 1.4.0
+
+    sicon-000670    Bug Calendar property incorrectly displaying
+    sicon-000671    Bug Reference to base module navtab css
+    sicon-000696    Improvement     First line info for drop down subject
+    sicon-000777    Bug Check for $item isset prior to returning
+    sicon-000778    Improvement     Error and exception improvements
+    sicon-000779    Improvement Revert back to non-datadict and add table collation
+    sicon-000780    Improvement Support ipv6
+    sicon-000785    Export and import of forms
+
+Version 1.2.0  26 July 2010
+==========================
+- Feature release plus bug fixes
+    sicon-000505    Bug     Delete hooks not working for reponses
+    sicon-000508    Bug     scid and scrid not passed to mail template
+    sicon-000511    Bug     contact form name tabs broken in admin
+    sicon-000509    Improvement     From - onbehalf
+    sicon-000510    Improvement     Update for php 5.3
+    sicon-000519    Improvement     Update sitecontact block with validation
+    sicon-000506    New feature     Allow editing of responses
+    sicon-000507    New feature     Implement validation code feature
+                                    Allows users to confirm their request and admins to approve.
+- Various other smaller bug fixes
+    - add edit link to admin view
+    - correct current nav tab link
+    - add tab.css and breadcrumbs files to sitecontact for better xaraya compatibility
+    - updated documentation in Overview
+        Example (and working) templates for 'Application' form that uses the new
+        user email validation and admin approval process.
+        Requires user to define a form called 'application'
+        with 3 special dynamic data fields (see Overview for details)
+
+Version 1.1.4 30 March 2009
+- sicon-000349 configs when empty cause error
+
+Version 1.1.3 24 March 2009
+- bugfix release plus some features
+    sicon-000328 Description for priv instances
+    sicon-000333 Consistent call to xarTplModule for user and admin templates
+    sicon-000336 Remove references to deprecated js
+    sicon-000337 Call xarvarvalidate for email check
+    sicon-000338 Remove CC list before adding to admin cc list
+    sicon-000339 Not all values returned to form on error
+    sicon-000340 New forms do not use default options
+    sicon-000119 Improvement Mandatory fields validations
+    sicon-000332 Improvement Update menulinks with new standard
+- miscellaneous other template and small fixes
+
+Version 1.1.1 17 Jan 2009
+- Bug fix release covering logged issues:
+  sicon-000155 Respond Func issues?
+  sicon-000156 Invalid Error text in sitecontact blocks
+  sicon-000157 Block Dynamic Data always displays
+  sicon-000204 Short URL does not work with Numbers....
+  sicon-000236 IP address not correct
+  sicon-000309 Support for hooked formantibot captcha
+- hooks (in addition to existing dd) added to sitecontact block and some css cleanup
+- template cleanups  including MLS strings and deprecated tags
+
+
+Version 1.1.0 8 Jan 2008
+- move key areas to dynamic data retaining backward compat where possible
+- add ability to add custom func for preprocessing data
+- deprecated contactus function and instead now have repond gui and api functions
+  : can submit to for processing by other modules
+- updated and improved obfuscation for email
+- added instances for contact forms so access is via privileges per form
+  : this broke in prior merge of scenarios
+- addition of ability for admin to add their own cc list
+- fixed the sitecontact block for reliable form return on bad user data
+- updated formcaptcha and formantibot captcha
+- extended ability for overridden templates including user form display,
+  html and text email overrides, result page overrides, and admin display pages for saved responses.
+- allow consistent feedback to user on invalid email entry, and dynamic data field entry (xarigami core).
+- various minor bug fixes see http://xarigami.com/?module=contrails&func=versions&projectid=5
+- For upgrade instructions please see the notes accompanying release at the Sitecontact Project page at the Xarigami website
+  NOTE : You must upgrade email template names, and your custom overridden templates!!!
+
+Version 1.0.3 Sept 2007
+- minor upgrade to remove block instances and block security checks
+- now handled from xarigami core
+
+Version 1.0.2 Jul 2007
+- Added formcaptcha support
+- various bugs
+- admin custom page display for items
+- waiting content block
+
+Version 1.0.1 18 Aug 2006
+- New sitecontact block
+- Updated menuing in form response management
+- Finalized paging in forms and responses (still using one itemsperpage var)
+- Some minor bug fixes
+
+Version 1.0.0 1 Aug 2006
+- Added Anti-bot captcha as optional extra to each form.
+  This is available by installing and activating the FormAntiBot module.
+
+Version 0.6.1 5 July 2006
+- Updated admin interface for custom forms admin with sub menus to assist navigation
+- Enhanced IP check on sender with proxy awareness
+- Allow copy for registered users only
+- Admin toggle to allow 'copy to' for anonymous users
+- Check for CC and BC var allowed config prior to email send in addition to existing form checks
+- Updated documentation Overview with details on permissions and updated features
+- Some other miscellaneous bug fixes
+
+Version 0.6.0 19 June 2006
+- Manually merged the 'save forms' scenario that allows form responses to be saved to the database
+- Add form instances for privs
+- New 'save form data to database' options for each form
+  Users must have Comment level permission on the form to save
+- Optional permission check for user to save
+- View form responses, delete responses

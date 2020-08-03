@@ -1,0 +1,59 @@
+<xar:mlstring>A new request has been received requiring confirmation.</xar:mlstring>
+
+
+<xar:set name="viewurl">xarModURL('sitecontact','admin','modify',array('scid'=>13,'scrid'=>$scrid))</xar:set>
+<xar:mlstring>
+    To view and approve this request, please make sure you are logged in and browse to:
+    <a href="#$viewurl#">Review requests</a>
+</xar:mlstring>
+
+<xar:mlstring>The submission may not be validated at this time and you may need to wait for the user to validate their submission. 
+</xar:mlstring>
+<xar:if condition="!empty($username)">
+    <xar:mlstring>Name: </xar:mlstring> #$username#
+</xar:if>
+
+-------------------------------------------------------------
+
+<xar:if condition="!empty($useremail)">
+    <xar:mlstring>Email: </xar:mlstring> #$useremail#
+</xar:if>
+
+<xar:if condition="!empty($company)">
+    <xar:mlstring>Organization: </xar:mlstring> #$company#
+</xar:if>
+
+<xar:if condition="!empty($requesttext)">
+    <xar:mlstring>Subject: </xar:mlstring> #$requesttext#
+</xar:if>
+
+<xar:if condition="!empty($usermessage)">
+<xar:mlstring>Comments: </xar:mlstring>
+
+#$usermessage#
+</xar:if>
+
+<xar:if condition="isset($properties) and count($properties) gt 0">
+    <xar:foreach in="$properties" key="$name">
+            <xar:data-label property="$properties[$name]" />: <xar:data-output property="$properties[$name]" />
+    </xar:foreach>
+</xar:if>
+
+-------------------------------------------------------------
+
+<xar:mlstring>User information:</xar:mlstring>
+
+<xar:mlstring>Sender:  </xar:mlstring> #$useripaddress#
+
+<xar:mlstring>Referer: </xar:mlstring> #$userreferer#
+
+<xar:mlstring>Form:    </xar:mlstring> #$sctypedesc#
+
+
+-------------------------------------------------------------
+
+#$sitename# <xar:mlstring> at </xar:mlstring> #$siteurl#
+
+#$todaydate#
+
+

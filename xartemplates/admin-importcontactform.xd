@@ -1,0 +1,46 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Sitecontact Form Type</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+            <h2>
+                <xar:mlstring>Import Definition of Sitecontact form </xar:mlstring>
+            </h2>
+            <xar:if condition="!empty($warning)">
+                <p>
+                    <strong>#$warning#</strong>
+                </p>
+            </xar:if>
+            <form method="post" action="#xarModURL('sitecontact','admin','importcontactform')#">
+                <input type="hidden" name="authid" id="authid" value="#$authid#" />
+                <div class="xar-form-input-wrapper">
+                <label class="xar-form-label"><xar:mlstring>Filter</xar:mlstring>:</label>
+                <strong>modules/sitecontact/*.xml</strong>
+                </div>
+                <div class="xar-form-input-wrapper">
+                    <label class="xar-form-label"><xar:mlstring>File</xar:mlstring>:</label>
+                    <select name="import" id="import" class="xar-form-textlong">
+                    <xar:foreach in="$options" value="$option">
+                        <option value="#$option['id']#">#$option['name']#</option>
+                    </xar:foreach>
+                    </select>
+
+                    <input type="submit" value="#xarML('Import Definition')#" />
+                </div>
+
+
+                <div class="xar-form-input-wrapper">
+                    <label class="xar-form-label"><xar:mlstring>Select a file in the list above, or paste the definition in here</xar:mlstring>:</label>
+                    <textarea name="xml" id="xml" rows="30" cols="80"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

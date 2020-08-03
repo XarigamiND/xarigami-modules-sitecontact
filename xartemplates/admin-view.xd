@@ -1,0 +1,81 @@
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Review Responses</xar:mlstring>
+        </h1>
+        <xar:template file="navviewtabs" type="module" />
+        <div class="xar-mod-content">
+
+            <xar:if condition="is_array($responses)">
+                 <table class="xar-items">
+                    <tr>
+                        <th>
+                            <xar:mlstring>Response ID</xar:mlstring>
+                        </th>
+                        <th>
+                           <xar:mlstring>Name</xar:mlstring>
+                        </th>
+                        <th>
+                           <xar:mlstring>Email</xar:mlstring>
+                        </th>
+                        <th class="xar-action-items">
+                            <xar:mlstring>Options</xar:mlstring>
+                        </th>
+                    </tr>
+                    <tbody>
+                    <xar:foreach in="$responses" value="$response">
+
+                        <tr>
+                            <td class="xar-norm">
+                                #$response['scrid']#
+                            </td>
+                            <td class="xar-norm">
+                                #$response['username']#
+                            </td>
+                            <td class="xar-norm">
+                                #$response['useremail']#
+                            </td>
+
+                            <td  class="xar-norm">
+                                <xar:if condition="empty($response['viewurl'])">
+                                    #$viewtitle#
+                                    <xar:else />
+                                    <a href="#$response['viewurl']#">
+                                        #$viewtitle#
+                                    </a>
+                                </xar:if>
+
+                                |
+                                <xar:if condition="empty($response['editurl'])">
+                                    #$edittitle#
+                                    <xar:else />
+                                    <a href="#$response['editurl']#">
+                                        #$edittitle#
+                                    </a>
+                                |
+                                </xar:if>
+                                <xar:if condition="empty($response['deleteurl'])">
+                                    #$deletetitle#
+                                    <xar:else />
+                                    <a href="#$response['deleteurl']#">
+                                        #$deletetitle#
+                                    </a>
+                                </xar:if>
+                            </td>
+                        </tr>
+                    </xar:foreach>
+                    </tbody>
+                </table>
+
+            <xar:else />
+                <xar:mlstring>No saved responses for this form</xar:mlstring>
+            </xar:if>
+            #$pager#
+        </div>
+    </div>
+</div>

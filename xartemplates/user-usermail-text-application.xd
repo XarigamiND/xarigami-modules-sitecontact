@@ -1,0 +1,51 @@
+<xar:set name="validationcode">$properties['validation_code']->getValue();</xar:set>
+<xar:set name="validationlink">xarModURL('sitecontact','user','valcode',array('scid'=>$scid,'scrid'=>$scrid,'valcode'=>$validationcode),false)</xar:set>
+#$notetouser#
+
+<xar:mlstring>Click on the following link to confirm your email request. 
+Your request will not be confirmed unless you successfully validate using this link.</xar:mlstring>
+
+ #$validationlink#
+
+<xar:mlstring>In some cases, you may not be able to click the link. In this case please copy and paste the link into your browser being careful to ensure the link does not wrap.</xar:mlstring>
+
+-------------------------------------------------------------
+
+<xar:mlstring>You submitted the following information:</xar:mlstring>
+<xar:if condition="!empty($username)">
+    <xar:mlstring>Name: </xar:mlstring> #$username#
+</xar:if>
+
+<xar:if condition="!empty($useremail)">
+    <xar:mlstring>Email: </xar:mlstring> #$useremail#
+</xar:if>
+
+<xar:if condition="!empty($company)">
+    <xar:mlstring>Organization: </xar:mlstring> #$company#
+</xar:if>
+
+<xar:if condition="!empty($requesttext)">
+    <xar:mlstring>Subject:</xar:mlstring> #$requesttext#
+</xar:if>
+
+<xar:if condition="!empty($usermessage)">
+<xar:mlstring>Comments:</xar:mlstring>
+
+#$usermessage#
+</xar:if>
+
+<xar:if condition="isset($properties) and count($properties) gt 0">
+    <xar:foreach in="$properties" key="$name">
+            <xar:data-label property="$properties[$name]" />: <xar:data-output property="$properties[$name]" />
+    </xar:foreach>
+</xar:if>
+
+-------------------------------------------------------------
+
+#$sitename#  <xar:mlstring> at </xar:mlstring> #$siteurl#
+
+#$todaydate#
+
+
+<xar:mlstring>Form: </xar:mlstring> #$sctypedesc#
+
