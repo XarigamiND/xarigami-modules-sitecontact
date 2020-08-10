@@ -277,7 +277,7 @@
                 <li>
                     <xar:mlstring>Email Obfuscation. This special Sitecontact function allows you to disguise emails you have on your site,
                     so that they are not easily harvested for spamming purposes from your website. See the obfuemail.php function in the xaruserapi directory for more information on usage
-                    or visit the Sitecontact Project Home page at xarigami.com for documentation. This obfuscation is also integrated into the Email dynamicdata property validation in our Xarigami Core.
+                    or visit the Sitecontact Project Home page at xarigami.org for documentation. This obfuscation is also integrated into the Email dynamicdata property validation in our Xarigami Core.
                     </xar:mlstring>
                 </li>
             </ol>
@@ -307,31 +307,9 @@
             <h2>
                 <xar:mlstring>Further Information</xar:mlstring>
             </h2>
-          <p>
-            <xar:mlstring>Further information on the Sitecontact module can be found at</xar:mlstring>
-          </p>
           <ul>
-            <xar:set name="sclink">'<a title="'.xarML('Sitecontact Module - Xarigami Extension 890').'" href="http://xarigami.com/project/sitecontact">'.xarML('Xarigami Projects').'</a>'</xar:set>
-            <li>
-                <xar:ml>
-                    <xar:mlstring>Sitecontact Extension page at #(1)</xar:mlstring>
-                    <xar:mlvar>#$sclink#</xar:mlvar>
-                </xar:ml>
-            </li>
-            <li>
-                <xar:set name="doclink">'<a href="http://xarigami.com/project/sitecontact?page=resources" title="'.xarML('Related documentation on Sitecontact').'">'.xarML('Xarigami Documentation').'</a>'</xar:set>
-                <xar:ml>
-                    <xar:mlstring>Related tutorials and documentation on Sitecontact found at #(1).</xar:mlstring>
-                    <xar:mlvar>#$doclink#</xar:mlvar>
-                </xar:ml>
-            </li>
-            <li>
-                <xar:set name="tracklink">'<a href="http://xarigami.com/contrails/displayproject/sicon" title="'.xarML('Sitecontact project tracker').'">'.xarML('Sitecontact project tracker').'</a>'</xar:set>
-                <xar:ml>
-                    <xar:mlstring>Please log bugs and feature requests at #(1).</xar:mlstring>
-                    <xar:mlvar>#$tracklink#</xar:mlvar>
-                </xar:ml>
-            </li>
+            <li><a href="http://xarigami.org/project/sitecontact"><xar:mlstring>Xarigami Sitecontact project page</xar:mlstring></a></li>
+            <li><a href="http://xarigami.org/contrails/displayproject/sicon"><xar:mlstring>Xarigami Sitecontact issue tracker</xar:mlstring></a></li>
           </ul>
           <p class="xar-sub">
             <strong>&#160;<xar:mlstring>Sitecontact Module Overview</xar:mlstring></strong><br />&#160;<xar:mlstring>Overview Revision</xar:mlstring> 1.5.2&#160;2011-06-21
