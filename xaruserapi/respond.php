@@ -525,7 +525,7 @@ function sitecontact_userapi_respond($args)
             * $htmlnotetouser = xarVarPrepHTMLDisplay($notetouser);
             */
 
-    assert('!empty($sctypename); /* sctypename should NOT be empty here, code error */');
+    assert(!empty($sctypename), 'sctypename should NOT be empty here, code error');
 
     $userhtmlarray= array('notetouser' => $htmlnotetouser,
                           'username'   => $username,
